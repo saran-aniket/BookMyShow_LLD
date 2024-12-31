@@ -22,4 +22,4 @@ Requirement Gathering
 * Price of each seat may vary depending upon seat type, show time.
 * One seat of a show cannot be booked by multiple people.
 * Each show can have different features - 2d, 3d imax, dolby_atmos
-* 
+* Payment to be handled by PG.
