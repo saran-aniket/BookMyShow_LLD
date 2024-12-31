@@ -1,0 +1,25 @@
+Book My Show LLD
+
+Overview
+    1. Design a ticket booking System
+    2. Persist data in database/in memory database
+    3. User Input -> Rest OR terminal
+    4. Scope of Design -> Design + Class Diagram + Schema Diagram + Code one logic E2E
+
+
+Requirement Gathering
+
+* User should be able to book a movie ticket.
+* User should be able to select a city/location
+* Multiple cities to be supported.
+* User should be able to Select a Movie
+* Each city has multiple movies and theatres
+* Each Theatre has multiple screens
+* User should be able to select a theatre and a show.
+* Each screen can play a different movie.(Only 1 at a time)
+* Each screen has multiple seats.
+* User should be able to see all available seats and select them.
+* Price of each seat may vary depending upon seat type, show time.
+* One seat of a show cannot be booked by multiple people.
+* Each show can have different features - 2d, 3d imax, dolby_atmos
+* 
