@@ -52,8 +52,8 @@ classDiagram
     
     class ScreenStatus{
         <<enumeration>>
-        ACTIVE
-        CLOSED
+        AVAIALABLE
+        UNAVAILABLE
     }
     
     class Feature{
@@ -85,10 +85,13 @@ classDiagram
         -Date startTime
         -Date endTime
         -Screen screen
+        -Theatre theatre
         -List~Feature~ features
+        -List~ShowSeat~ showSeatList
         -Movie movie
     }
     Show "m" --> "1" Screen
+    Show "m" --> "1" Theatre
     Show "m" --> "m" Feature 
     
     BaseModel <|-- ShowSeat
@@ -147,16 +150,17 @@ classDiagram
     
     class PaymentStatus{
         <<enumeration>>
-        SUCCESSFUL
-        FAILED
+        SUCCESS,
+        FAILED,
+        CANCELLED,
         PENDING
     }
     
     class BookingStatus{
         <<enumeration>>
-        CONFIRMED
-        FAILED
-        PENDING
+        PENDING,
+        CONFIRMED,
+        CANCELLED,
     }
 
 ```
