@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity(name = "city")
+@Entity
 public class City extends BaseModel{
     private String name;
     @OneToMany
