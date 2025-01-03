@@ -11,7 +11,9 @@ import java.util.List;
 @Setter
 @Entity
 public class Booking extends BaseModel{
-    private int referenceNumber;
+    private String referenceNumber;
+    @ManyToOne
+    private Show show;
     private Date bookingDate;
     @ManyToOne
     private Screen screen;

@@ -6,6 +6,7 @@ import com.lldbackend.bms_lld_123124.dtos.UserResponseDTO;
 import com.lldbackend.bms_lld_123124.exceptions.UserExistsException;
 import com.lldbackend.bms_lld_123124.models.User;
 import com.lldbackend.bms_lld_123124.repositories.UserRepository;
+import com.lldbackend.bms_lld_123124.services.RandomStringGeneratorService;
 import com.lldbackend.bms_lld_123124.services.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,8 @@ class BmsLld123124ApplicationTests {
     UserController userController;
     @Autowired
     UserService userService;
+    @Autowired
+    RandomStringGeneratorService randomStringGeneratorService;
     @Test
     void testJPALifecycleEvents() {
         List<User> userList = new ArrayList<>();
@@ -44,6 +47,11 @@ class BmsLld123124ApplicationTests {
         System.out.println(userResponseDTO.getStatus());
         System.out.println(userResponseDTO.getMessage());
         System.out.println(userResponseDTO.getUsername());
+    }
+
+    @Test
+    void randomStringGenerator(){
+        System.out.println(randomStringGeneratorService.generateRandomString(10));
     }
 
 }
