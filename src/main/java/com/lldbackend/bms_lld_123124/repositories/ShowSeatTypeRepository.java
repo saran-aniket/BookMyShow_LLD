@@ -8,4 +8,5 @@ import java.util.List;
 public interface ShowSeatTypeRepository extends JpaRepository<ShowSeatType, Long> {
     ShowSeatType save(ShowSeatType showSeatType);
     List<ShowSeatType> findAll();
+    List<ShowSeatType> findAllByShowId(Long showId);
 }

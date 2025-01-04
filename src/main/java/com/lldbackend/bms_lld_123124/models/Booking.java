@@ -23,7 +23,7 @@ public class Booking extends BaseModel{
     private List<ShowSeat> showSeatList;
     @ManyToOne
     private Movie movie;
-    @OneToOne
+    @ManyToOne
     private User user;
     private int amount;
     @OneToMany

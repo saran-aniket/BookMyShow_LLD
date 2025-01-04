@@ -21,17 +21,19 @@ public class BookingService {
     private final ShowRepository showRepository;
     private final ShowSeatRepository showSeatRepository;
     private final RandomStringGeneratorService randomStringGeneratorService;
+    private final PriceCalculatorService priceCalculatorService;
 
     public BookingService(BookingRepository bookingRepository,
                           UserRepository userRepository,
                           ShowRepository showRepository,
                           ShowSeatRepository showSeatRepository,
-                          RandomStringGeneratorService randomStringGeneratorService) {
+                          RandomStringGeneratorService randomStringGeneratorService, PriceCalculatorService priceCalculatorService) {
         this.bookingRepository = bookingRepository;
         this.userRepository = userRepository;
         this.showRepository = showRepository;
         this.showSeatRepository = showSeatRepository;
         this.randomStringGeneratorService = randomStringGeneratorService;
+        this.priceCalculatorService = priceCalculatorService;
     }
 
     public Booking saveBooking(Long userId, Long showId, List<Long> showSeatIdList) throws UserNotFoundException, ShowNotFoundException, ShowSeatNotFoundException {
@@ -64,7 +66,10 @@ public class BookingService {
         booking.setScreen(show.getScreen());
         booking.setTheatre(show.getTheatre());
         booking.setShow(show);
+        booking.setMovie(show.getMovie());
         booking.setReferenceNumber(randomStringGeneratorService.generateRandomString(10));
+        booking.setBookingStatus(BookingStatus.PENDING);
+        booking.setAmount(priceCalculatorService.calculatePrice(showSeatList));
         return bookingRepository.save(booking);
     }
 }
